@@ -1,0 +1,47 @@
+﻿@model OnlinePharmacyAppMVC.DTO.GetMedicine
+
+<h2>Medicines</h2>
+
+@if (Model?.data == null || !Model.data.Any())
+{
+    <p>No Medicine found.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> Medicine Id</th>
+                <th>Medicine Name</th>
+                <th>Composition</th>
+                <th>Description</th>
+                <th>Manufacturing</th>
+                <th>Expire Date</th>
+                <th>Price</th>
+                <th>Stock Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.data)
+            {
+                <tr>
+                    <td>@user.medicineId</td>
+                    <td>@user.medName</td>
+                    <td>@user.composition</td>
+                    <td>@user.description</td>
+                    <td>@user.manufacturing</td>
+                    <td>@user.expDate</td>
+                    <td>@user.price </td>
+                    <td>@user.stockQty </td>
+                    <td>
+                        <a asp-action="EditMedicine" asp-route-id="@user.medicineId" class="btn btn-warning">Upadate Medicine</a>
+                        <a class="btn btn-sm btn-danger" asp-action="DeleteUser" asp-route-id="@user.medicineId"
+                           onclick="return confirm('Are you sure you want to delete this medicine?');">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

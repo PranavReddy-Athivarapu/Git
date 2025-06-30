@@ -1,0 +1,35 @@
+﻿@model OnlinePharmacyAppMVC.DTO.MedicineDTO
+@{
+    ViewData["Title"] = "Edit Medicine";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="EditMedicine" method="post">
+    <input type="hidden" asp-for="medicineId" />
+
+    <label asp-for="medName">Medicine Name:</label><br />
+    <input asp-for="medName" required /><br /><br />
+
+    <label asp-for="composition">Composition:</label><br />
+    <input asp-for="composition" required /><br /><br />
+
+    <label asp-for="description">Description:</label><br />
+    <input asp-for="description" required /><br /><br />
+
+    <label asp-for="manufacturing">Manufacturing:</label><br />
+    <input asp-for="manufacturing" required /><br /><br />
+
+    <label asp-for="expDate">Expire Date:</label><br />
+    <textarea asp-for="expDate"></textarea><br /><br />
+
+    <label asp-for="price">Price:</label><br />
+    <textarea asp-for="price"></textarea><br /><br />
+
+
+    <label asp-for="stockQty">Stock Quantity:</label><br />
+    <textarea asp-for="stockQty"></textarea><br /><br />
+
+    <button type="submit">Update</button>
+</form>
+

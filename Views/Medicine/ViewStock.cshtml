@@ -1,0 +1,40 @@
+﻿@model OnlinePharmacyAppMVC.DTO.GetMedicine
+
+<h2>View Stock</h2>
+
+@if (Model?.data == null || !Model.data.Any())
+{
+    <p>No Stock found.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Medicine ID</th>
+                <th>Name</th>
+                <th>Manufacturing</th>
+                <th>Stock Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.data)
+            {
+                <tr>
+                    <td>@user.medicineId</td>
+                    <td>@user.medName</td>
+                    <td>@user.manufacturing</td>
+                    <td>@user.stockQty</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning"
+                           asp-action="UpdateStockQuantity"
+                           asp-route-id="@user.medicineId">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

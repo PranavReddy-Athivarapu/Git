@@ -1,0 +1,21 @@
+﻿@model OnlinePharmacyAppMVC.DTO.MedicineDTO
+
+<h2>Update Stock</h2>
+
+
+
+<form asp-action="UpdateStockQuantity" method="post">
+    <input type="hidden" asp-for="medicineId" />
+
+    <label>Medicine Name:</label><br />
+    <input asp-for="medName" readonly /><br /><br />
+
+    <label>Current Stock:</label><br />
+    <input asp-for="stockQty" readonly /><br /><br />
+
+    <label>Added Quantity:</label><br />
+    <input type="number" name="addedQuantity" required /><br /><br />
+
+    <button type="submit">Submit</button>
+</form>
+

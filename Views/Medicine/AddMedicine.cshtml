@@ -1,0 +1,43 @@
+﻿@model OnlinePharmacyAppMVC.DTO.MedicineDTO
+@{
+    ViewData["Title"] = "Add Medicine";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@* @if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+} *@
+
+<form asp-action="AddMedicine" method="post">
+    <label asp-for="medName">Medicine Name:</label><br />
+    <input asp-for="medName" required /><br /><br />
+
+    <label asp-for="composition">composition:</label><br />
+    <input asp-for="composition"  required /><br /><br />
+
+    <label asp-for="description">Description:</label><br />
+    <input asp-for="description" required /><br /><br />
+
+    <label asp-for="manufacturing">manufacturing:</label><br />
+    <input asp-for="manufacturing" required /><br /><br />
+
+    <label asp-for="expDate">expdate:</label><br />
+    <textarea asp-for="expDate" required></textarea><br /><br />
+
+    <label asp-for="price">Price:</label><br />
+    <textarea asp-for="price" required></textarea><br /><br />
+
+    <label asp-for="stockQty">Stock Quantity:</label><br />
+    <textarea asp-for="stockQty" required></textarea><br /><br />
+
+   
+
+    <button type="submit">Submit</button>
+</form>
+
