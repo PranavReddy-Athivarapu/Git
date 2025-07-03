@@ -1,0 +1,40 @@
+﻿@model List<OnlinePharmacyAppMVC.DTO.DiscountDTO>
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    ViewData["Title"] = "Your Discounts";
+}
+
+<h2>Your Discounts</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">No discounts available.</div>
+}
+else
+{
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Value</th>
+                <th>Is %</th>
+                <th>Valid From</th>
+                <th>Valid To</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.DiscountCode</td>
+                    <td>@d.DiscountType</td>
+                    <td>@d.Value</td>
+                    <td>@(d.IsPercentage ? "Yes" : "No")</td>
+                    <td>@d.StartDate.ToShortDateString()</td>
+                    <td>@(d.EndDate?.ToShortDateString() ?? "—")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
